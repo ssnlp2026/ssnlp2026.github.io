@@ -1,1 +1,1004 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <title>The 2026 Singapore Symposium on Natural Language Processing</title>
+    <meta
+      name="description"
+      content="Official splash page for The 2026 Singapore Symposium on Natural Language Processing (SSNLP)."
+    />
+    <style>
+      :root {
+        --nav-height: 100px;
+        --dark: #0b1f2c;
+        --accent: #f9a826;
+        --light: #f4f7fb;
+        --heading-blue: #1c4fe3;
+        --heading-line: rgba(28, 79, 227, 0.3);
+        --tab-bg: #d9ecff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+        padding-top: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      header {
+        width: 100%;
+        min-height: 60vh;
+        padding: calc(2rem + var(--nav-height)) 1.5rem 4rem;
+        margin-top: -var(--nav-height);
+        background-color: #e9f1fb;
+        background-image: url("assets/ssnlp-image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            rgba(199, 223, 255, 0.55),
+            rgba(255, 255, 255, 0.7)
+          ),
+          rgba(176, 210, 255, 0.3);
+        pointer-events: none;
+      }
+
+      header h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        letter-spacing: 0.1em;
+      }
+
+      header p {
+        max-width: 600px;
+        margin: 0 auto 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      nav {
+        background: var(--tab-bg);
+        border-bottom: 1px solid rgba(11, 31, 44, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        box-shadow: 0 3px 15px rgba(11, 31, 44, 0.08);
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0.45rem 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--dark);
+        padding: 0.3rem 0.6rem;
+        border-radius: 0;
+        border: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+        background: transparent;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        color: #8fb9ff;
+      }
+
+      .logo-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        margin-right: 1rem;
+      }
+
+      .logo-link img {
+        height: 48px;
+        width: auto;
+        display: block;
+      }
+
+      .logo-link:hover,
+      .logo-link:focus {
+        color: inherit;
+      }
+
+      main {
+        width: min(85vw, 1200px);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      section {
+        padding: 2.5rem 0;
+        margin: 0 auto 1.5rem;
+      }
+
+      #contact,
+      #past-event {
+        padding: 1rem 0;
+        margin-bottom: 0.25rem;
+      }
+
+      #contact p,
+      #past-event .past-list {
+        margin-bottom: 0;
+      }
+
+      header,
+      section {
+        scroll-margin-top: calc(var(--nav-height) + 12px);
+      }
+
+      section h2 {
+        margin: 0 0 1.75rem;
+        font-size: 1.7rem;
+        letter-spacing: 0.05em;
+        text-align: center;
+        color: #0b1f2c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      section h2::before,
+      section h2::after {
+        content: "";
+        flex: 1 1 60px;
+        height: 2px;
+        background: var(--heading-line);
+      }
+
+      .welcome {
+        font-size: 1.1rem;
+      }
+
+      .schedule {
+        margin-top: 1.5rem;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .schedule-header {
+        padding: 0 0 1.25rem;
+        text-align: center;
+      }
+
+      .schedule-header h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(11, 31, 44, 0.6);
+      }
+
+      .schedule-header p {
+        margin: 0.3rem 0;
+        font-size: 1rem;
+        color: rgba(11, 31, 44, 0.8);
+      }
+
+      .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid rgba(11, 31, 44, 0.08);
+        text-align: left;
+      }
+
+      .schedule-table th {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.85rem;
+        color: rgba(11, 31, 44, 0.7);
+      }
+
+      .schedule-time {
+        font-weight: 600;
+        white-space: nowrap;
+        color: #1b3b66;
+      }
+
+      .schedule-session strong {
+        color: #00BFFF;
+      }
+
+      .schedule-presenter {
+        color: rgba(11, 31, 44, 0.8);
+        font-weight: 600;
+      }
+
+      .schedule-break td {
+        text-align: center;
+        font-weight: 600;
+        color: #1f4ea8;
+        background: transparent;
+      }
+
+      .schedule-group td {
+        text-align: left;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(11, 31, 44, 0.7);
+        padding-top: 1.5rem;
+        background: transparent;
+      }
+
+      .details-card {
+        margin-top: 2rem;
+        background: #fff;
+        border-radius: 14px;
+        padding: 1.75rem;
+        box-shadow: 0 12px 30px rgba(11, 31, 44, 0.08);
+        border: 1px solid rgba(11, 31, 44, 0.08);
+      }
+
+      .details-card h3 {
+        margin: 0 0 1rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--heading-blue);
+      }
+
+      .details-card dl {
+        margin: 0 0 1rem;
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .details-card dt {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-size: 0.85rem;
+        color: rgba(11, 31, 44, 0.8);
+      }
+
+      .details-card dd {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .details-card ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .details-card li {
+        margin-bottom: 0.35rem;
+      }
+
+      .organizer-table {
+        width: min(70vw, 900px);
+        border-collapse: collapse;
+        margin: 1.5rem auto 0;
+        border-top: 2px solid rgba(11, 31, 44, 0.3);
+        border-bottom: 2px solid rgba(11, 31, 44, 0.3);
+      }
+
+      .organizer-table th,
+      .organizer-table td {
+        padding: 1rem 1.25rem;
+      }
+
+      .organizer-table th {
+        width: 32%;
+        text-align: right;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: #3a4759;
+        vertical-align: middle;
+      }
+
+      .organizer-table td {
+        text-align: left;
+        line-height: 1.6;
+      }
+
+      .organizer-table tr + tr {
+        border-top: 1px solid rgba(11, 31, 44, 0.1);
+      }
+
+      .organizer-table a {
+        color: #1e74ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .organizer-table a:hover,
+      .organizer-table a:focus {
+        text-decoration: underline;
+      }
+
+      .countdown-card {
+        margin: 1.25rem auto 0;
+        padding: 0;
+        text-align: center;
+        width: min(80vw, 640px);
+      }
+
+      .countdown-card h3 {
+        margin: 0 0 1rem;
+        letter-spacing: 0.08em;
+        font-size: 1.15rem;
+        color: rgba(11, 31, 44, 0.7);
+      }
+
+      .countdown-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .countdown-item {
+        padding: 0.5rem 0.25rem;
+      }
+
+      .countdown-value {
+        font-size: 3.4rem;
+        font-weight: 700;
+        color: #d62828;
+        display: block;
+        line-height: 1.1;
+      }
+
+      .countdown-label {
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(11, 31, 44, 0.6);
+      }
+
+      .news-card {
+        margin-top: 1.5rem;
+        background: #fdfdfc;
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 15px 30px rgba(11, 31, 44, 0.05);
+        border: 1px solid rgba(11, 31, 44, 0.08);
+      }
+
+      .news-card h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #d6482f;
+      }
+
+      .news-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: rgba(11, 31, 44, 0.9);
+        font-size: 0.95rem;
+      }
+
+      .news-card li {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .news-date {
+        font-weight: 600;
+        color: #d62828;
+      }
+
+      .past-list {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin: 1rem 0 0;
+        color: rgba(11, 31, 44, 0.9);
+      }
+
+      .past-list li {
+        margin-bottom: 0.6rem;
+      }
+
+      .past-list a {
+        color: #1e74ff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .past-list a:hover,
+      .past-list a:focus {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1.2rem 1rem 1.6rem;
+        color: rgba(11, 31, 44, 0.85);
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        background: #e8eef9;
+        border-top: 1px solid rgba(11, 31, 44, 0.08);
+      }
+
+      .contact-links a {
+        color: #1e74ff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .contact-links a:hover,
+      .contact-links a:focus {
+        text-decoration: underline;
+      }
+
+      .section-placeholder {
+        text-align: center;
+        font-size: 1.2rem;
+        color: rgba(11, 31, 44, 0.4);
+        margin: 1rem 0 0;
+      }
+
+      .hero-content {
+        width: min(95vw, 1440px);
+        max-width: 1440px;
+        margin: 1rem auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.9rem;
+        padding: 0 1.25rem;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .hero-lead {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 700;
+        color: #1f4ea8;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .hero-lead .hero-year {
+        font-family: "Chalkduster", "Comic Sans MS", cursive;
+        color: #d62828;
+      }
+
+      .hero-content h1 {
+        margin: 0;
+        font-size: clamp(0.9rem, 2vw, 1.4rem);
+        letter-spacing: 0.02em;
+        font-weight: 600;
+        line-height: 1.35;
+        color: #2f4a75;
+        max-width: 920px;
+      }
+
+      .hero-details {
+        margin: 0;
+        font-size: 0.95rem;
+        color: rgba(11, 31, 44, 0.75);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-description {
+        max-width: 920px;
+        width: 100%;
+        margin: 0 auto 0.8rem;
+        color: rgba(11, 31, 44, 0.9);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .hero-updates {
+        text-align: center;
+        margin: 0 auto 0.5rem;
+        font-size: 0.98rem;
+        color: rgba(11, 31, 44, 0.8);
+      }
+
+      .hero-updates a {
+        color: #1e74ff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .hero-cta {
+        align-self: center;
+        margin-top: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem 2.4rem;
+        border-radius: 999px;
+        border: none;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #fff;
+        background: #2a5bd7;
+        box-shadow: 0 12px 25px rgba(42, 91, 215, 0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .hero-cta:hover,
+      .hero-cta:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 30px rgba(42, 91, 215, 0.45);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      @media (max-width: 600px) {
+        section {
+          padding: 2rem 0;
+        }
+
+        nav ul {
+          padding: 0.35rem 0.75rem;
+          gap: 0.3rem;
+        }
+
+        nav a {
+          padding: 0.25rem 0.45rem;
+        }
+
+        .logo-link img {
+          height: 40px;
+        }
+
+        .hero-content {
+          width: 100%;
+          padding: 0 1rem;
+        }
+
+        .hero-lead {
+          font-size: clamp(1.6rem, 7vw, 2.4rem);
+        }
+
+        .hero-content h1 {
+          font-size: clamp(0.85rem, 4.2vw, 1.3rem);
+        }
+
+        .hero-details {
+          font-size: 0.85rem;
+          letter-spacing: 0.05em;
+        }
+
+        .hero-description {
+          width: 100%;
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (min-width: 1024px) and (max-width: 1600px) {
+        .hero-content {
+          width: 85vw;
+          max-width: 1440px;
+        }
+      }
+
+      @media (min-width: 1601px) {
+        .hero-content {
+          width: min(80vw, 1440px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo-link" href="#overview" aria-label="Return to the SSNLP homepage">
+            <img src="assets/ssnlp-icon.png" alt="SSNLP logo" />
+          </a>
+        </li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#speaker">Speaker</a></li>
+        <li><a href="#organizers">Organizers</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#past-event">Past Event</a></li>
+      </ul>
+    </nav>
+
+    <header id="overview">
+      <div class="hero-content">
+        <p class="hero-lead">SSNLP <span class="hero-year">2026</span></p>
+        <h1>The 2026 Singapore Symposium on Natural Language Processing</h1>
+        <p class="hero-details">
+          21 January 2026 | Singapore | SUTD
+        </p>
+        <p class="hero-description">
+          Beyond Papers. Beyond Talks. Pure Connection. The definitive annual
+          gathering for Singapore’s NLP community. Experience a reimagined,
+          interactive symposium designed for deep dialogue and future-shaping
+          collaborations right before AAAI 2026.
+        </p>
+        <p class="hero-updates">
+          Stay updated:
+          <a href="https://ssnlp2026.github.io/" target="_blank" rel="noopener"
+            >https://ssnlp2026.github.io/</a
+          >
+        </p>
+        <a class="hero-cta" href="#welcome">Learn More</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="welcome">
+        <h2>Welcome</h2>
+        <p class="welcome">
+          The Singapore Symposium on Natural Language Processing (SSNLP) returns
+          on Wednesday, January 21, 2026, hosted at SUTD as a full-day,
+          in-person event. Since its inception in 2018, SSNLP has stood as the
+          annual heartbeat of Singapore’s NLP community, bringing together
+          students, faculty, and industry researchers to share ongoing work and
+          spark new collaborations. Organized in strategic conjunction with
+          AAAI-26, this year’s symposium features a revitalized program designed
+          to maximize intellectual exchange. The day begins with visionary
+          insights from four invited <strong>keynote</strong> speakers exploring
+          the frontiers of the field, followed by a critical
+          <strong>panel</strong> discussion to debate emerging challenges.
+          Complementing these sessions, the technical program adopts an
+          immersive <strong>poster</strong>-only format to showcase recent
+          breakthroughs from top venues like ACL, NeurIPS, and AAAI, ensuring
+          deeper face-to-face engagement. The event culminates in dedicated
+          community sessions and a closing <strong>social event</strong> to
+          bridge academic and industrial perspectives. We look forward to
+          welcoming you to SSNLP 2026 for a stimulating day of research exchange
+          and community building.
+        </p>
+        <div class="countdown-card" data-target="2026-01-21T00:00:00+08:00">
+          <h3>SSNLP 2026 begins in…</h3>
+          <div class="countdown-grid">
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-days">--</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-hours">--</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-minutes">--</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-seconds">--</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+        </div>
+        <div class="news-card">
+          <h3>🎉 News</h3>
+          <ul>
+            <li>
+              <span class="news-date">18 Nov 2025</span>
+              <span class="news-label">•</span>
+              SSNLP 2026 website launched 🚀
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="programme">
+        <h2>Programme</h2>
+        <div class="schedule">
+          <div class="schedule-header">
+            <p>
+              Date: Jan 21, 2026 (Wed) | Venue: Albert Hong Lecture Theatre 1 &amp;
+              Campus Center @ SUTD
+            </p>
+          </div>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th style="width: 18%">Time</th>
+                <th>Session</th>
+                <th style="width: 22%">Presenter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="schedule-time">09:00–09:50</td>
+                <td class="schedule-session"><strong>Invited Talk I</strong></td>
+                <td class="schedule-presenter">Speaker A</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">09:50–10:40</td>
+                <td class="schedule-session"><strong>Invited Talk II</strong></td>
+                <td class="schedule-presenter">Speaker B</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">10:40–11:30</td>
+                <td class="schedule-session"><strong>Invited Talk III</strong></td>
+                <td class="schedule-presenter">Speaker C</td>
+              </tr>
+              <tr class="schedule-break">
+                <td colspan="3">Lunch Break</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">13:30–14:20</td>
+                <td class="schedule-session"><strong>Invited Talk IV</strong></td>
+                <td class="schedule-presenter">Industry Leader</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">14:20–15:10</td>
+                <td class="schedule-session"><strong>Panel &amp; Community Session</strong></td>
+                <td class="schedule-presenter">Moderators &amp; Community Leads</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">15:10–16:00</td>
+                <td class="schedule-session"><strong>Poster Presentations</strong></td>
+                <td class="schedule-presenter">All Accepted Posters</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">16:00–17:00</td>
+                <td class="schedule-session"><strong>Social Mixer</strong></td>
+                <td class="schedule-presenter">Hosts &amp; Attendees</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="speaker">
+        <h2>Speaker</h2>
+        <p class="section-placeholder">TBD</p>
+      </section>
+
+      <section id="organizers">
+        <h2>Organizers</h2>
+        <table class="organizer-table">
+          <tbody>
+            <tr>
+              <th>General Chair</th>
+              <td>
+                <a href="https://isakzhang.github.io" target="_blank" rel="noopener"
+                  >Wenxuan Zhang</a
+                >
+                · Singapore University of Technology and Design
+              </td>
+            </tr>
+            <tr>
+              <th>Program Chairs</th>
+              <td>
+                <div>
+                  <a href="https://personal.ntu.edu.sg/wangwy" target="_blank" rel="noopener"
+                    >Wenya Wang</a
+                  >
+                  · Nanyang Technological University
+                </div>
+                <div>
+                  <a href="https://dengyang17.github.io" target="_blank" rel="noopener"
+                    >Yang Deng</a
+                  >
+                  · Singapore Management University
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Web &amp; Publicity Chair</th>
+              <td>
+                <a href="https://libobo.site" target="_blank" rel="noopener">Bobo Li</a>
+                · National University of Singapore
+              </td>
+            </tr>
+            <tr>
+              <th>Local Chairs</th>
+              <td>
+                <div>
+                  <a href="https://www.linkedin.com/in/ryner-tan" target="_blank" rel="noopener"
+                    >Ryner Tan</a
+                  >
+                  · Singapore University of Technology and Design
+                </div>
+                <div>
+                  <a href="https://linkedin.com/in/qishenghu" target="_blank" rel="noopener"
+                    >Qisheng Hu</a
+                  >
+                  · Nanyang Technological University
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Registration Chairs</th>
+              <td>
+                <div>
+                  <a href="https://buraksatar.github.io" target="_blank" rel="noopener"
+                    >Satar Burak</a
+                  >
+                  · Singapore Management University
+                </div>
+                <div>
+                  <a href="https://quanyulong.net" target="_blank" rel="noopener"
+                    >Quanyu Long</a
+                  >
+                  · Nanyang Technological University
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Industrial Relation Chairs</th>
+              <td>
+                <div>
+                  <a href="https://siviltaram.github.io" target="_blank" rel="noopener"
+                    >Liu Qian</a
+                  >
+                  · TikTok/ByteDance AI Innovation Center, Singapore
+                </div>
+                <div>
+                  <a href="https://mingshanhee.github.io" target="_blank" rel="noopener"
+                    >Ming Shan Hee</a
+                  >
+                  · MBZUAI Fundamental Models Research Center
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sponsors">
+        <h2>Sponsors</h2>
+        <p class="section-placeholder">TBD</p>
+      </section>
+
+      <section id="location">
+        <h2>Location</h2>
+        <p class="section-placeholder">TBD</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p class="contact-links">
+          Please feel free to reach out if you have any inquiries:
+          <a href="mailto:wxzhang@sutd.edu.sg">Wenxuan Zhang</a>,
+          <a href="mailto:wangwy@ntu.edu.sg">Wenya Wang</a>,
+          <a href="mailto:dengyang17dydy@gmail.com">Deng Yang</a>
+        </p>
+      </section>
+
+      <section id="past-event">
+        <h2>Past Event</h2>
+        <ul class="past-list">
+          <li>
+            <a href="https://ssnlp-website.github.io/ssnlp25/" target="_blank" rel="noopener"
+              >SSNLP 2025</a
+            >
+            · Held at SUTD
+          </li>
+          <li>
+            <a href="https://wing-nus.github.io/SSNLP-2024/" target="_blank" rel="noopener"
+              >SSNLP 2024</a
+            >
+            · Held at Town Hall Auditorium
+          </li>
+          <li>
+            <a href="https://wing-nus.github.io/ssnlp-2023/" target="_blank" rel="noopener"
+              >SSNLP 2023</a
+            >
+            · Held at NUS
+          </li>
+          <li>
+            <a href="https://wing-nus.github.io/SSNLP-2022/" target="_blank" rel="noopener"
+              >SSNLP 2022</a
+            >
+            · Held at NUS
+          </li>
+          <li>
+            <a href="https://ssnlp.org" target="_blank" rel="noopener">SSNLP 2020</a>
+            · Held 100% virtually
+          </li>
+          <li>
+            <a href="https://wing-nus.github.io/SSNLP-2019/" target="_blank" rel="noopener"
+              >SSNLP 2019</a
+            >
+            · Held at I2R
+          </li>
+          <li>
+            <a href="https://event.statnlp.org/" target="_blank" rel="noopener">SSNLP 2018</a>
+            · Inaugural event at SUTD
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <small>Copyright &copy; SSNLP 2026</small>
+    </footer>
+    <script>
+      (function () {
+        const card = document.querySelector(".countdown-card");
+        if (!card) return;
+        const targetDate = new Date(card.dataset.target);
+        const daysEl = document.getElementById("countdown-days");
+        const hoursEl = document.getElementById("countdown-hours");
+        const minutesEl = document.getElementById("countdown-minutes");
+        const secondsEl = document.getElementById("countdown-seconds");
+
+        function updateCountdown() {
+          const now = new Date();
+          const diff = targetDate - now;
+          if (diff <= 0) {
+            daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent =
+              "00";
+            return;
+          }
+          const totalSeconds = Math.floor(diff / 1000);
+          const days = Math.floor(totalSeconds / 86400);
+          const hours = Math.floor((totalSeconds % 86400) / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          const seconds = totalSeconds % 60;
+
+          daysEl.textContent = String(days).padStart(2, "0");
+          hoursEl.textContent = String(hours).padStart(2, "0");
+          minutesEl.textContent = String(minutes).padStart(2, "0");
+          secondsEl.textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      })();
+    </script>
+  </body>
+</html>
