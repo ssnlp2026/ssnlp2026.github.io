@@ -11,13 +11,16 @@
     />
     <style>
       :root {
-        --nav-height: 100px;
+        --nav-height: 80px;
         --dark: #0b1f2c;
         --accent: #f9a826;
         --light: #f4f7fb;
         --heading-blue: #1c4fe3;
         --heading-line: rgba(28, 79, 227, 0.3);
         --tab-bg: #d9ecff;
+        --primary-blue: #216ce7;
+        --text-blue: #6499e9;
+        --bright-blue: #00bfff;
       }
 
       * {
@@ -39,10 +42,10 @@
 
       header {
         width: 100%;
-        min-height: 60vh;
-        padding: calc(2rem + var(--nav-height)) 1.5rem 4rem;
+        min-height: 0;
+        padding: calc(0.6rem + var(--nav-height)) 1.5rem 1.8rem;
         margin-top: -var(--nav-height);
-        background-color: #e9f1fb;
+        background-color: #c2d4f2;
         background-image: url("assets/ssnlp-image.jpg");
         background-size: cover;
         background-repeat: no-repeat;
@@ -61,10 +64,10 @@
         position: absolute;
         inset: 0;
         background: linear-gradient(
-            rgba(199, 223, 255, 0.55),
-            rgba(255, 255, 255, 0.7)
+            rgba(230, 240, 252, 0.65),
+            rgba(245, 250, 255, 0.75)
           ),
-          rgba(176, 210, 255, 0.3);
+          rgba(210, 230, 250, 0.4);
         pointer-events: none;
       }
 
@@ -72,12 +75,14 @@
         font-size: clamp(2.5rem, 5vw, 4rem);
         margin-bottom: 1rem;
         letter-spacing: 0.1em;
+        color: var(--primary-blue);
       }
 
       header p {
         max-width: 600px;
         margin: 0 auto 1.5rem;
         font-size: 1.1rem;
+        color: var(--text-blue);
       }
 
       nav {
@@ -158,14 +163,13 @@
         margin-bottom: 0.25rem;
       }
 
-      #contact p,
-      #past-event .past-list {
+      #past-event .past-grid {
         margin-bottom: 0;
       }
 
       header,
       section {
-        scroll-margin-top: calc(var(--nav-height) + 12px);
+        scroll-margin-top: calc(var(--nav-height) + 02px);
       }
 
       section h2 {
@@ -314,6 +318,40 @@
         margin-bottom: 0.35rem;
       }
 
+      .organizer-logos {
+        width: min(80vw, 960px);
+        margin: 1.4rem auto 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(150px, 1fr));
+        gap: 1.5rem;
+        justify-items: center;
+        align-items: center;
+      }
+
+      @media (max-width: 700px) {
+        .organizer-logos {
+          grid-template-columns: repeat(2, minmax(140px, 1fr));
+        }
+      }
+
+      .organizer-logo {
+        padding: 1rem 0.75rem;
+      }
+
+      .organizer-logo a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .organizer-logo img {
+        max-width: 150px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 3px 6px rgba(11, 31, 44, 0.15));
+      }
+
       .organizer-table {
         width: min(70vw, 900px);
         border-collapse: collapse;
@@ -431,26 +469,88 @@
         color: #d62828;
       }
 
-      .past-list {
-        list-style: disc;
-        padding-left: 1.5rem;
-        margin: 1rem 0 0;
-        color: rgba(11, 31, 44, 0.9);
+      .contact-note {
+        margin: 0 auto 0.75rem;
+        text-align: center;
+        font-size: 1.15rem;
+        color: rgba(11, 31, 44, 0.85);
       }
 
-      .past-list li {
-        margin-bottom: 0.6rem;
+      .contact-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-size: 1.2rem;
+        margin: 0;
       }
 
-      .past-list a {
+      .contact-links a {
         color: #1e74ff;
         text-decoration: none;
         font-weight: 600;
+        position: relative;
+        padding: 0 0.6rem;
       }
 
-      .past-list a:hover,
-      .past-list a:focus {
+      .contact-links a + a::before {
+        content: "•";
+        position: absolute;
+        left: -0.75rem;
+        color: rgba(30, 116, 255, 0.45);
+      }
+
+      .contact-links a:hover,
+      .contact-links a:focus {
         text-decoration: underline;
+      }
+
+      .past-grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      @media (min-width: 1024px) {
+        .past-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .past-card {
+        background: #ffffff;
+        border-radius: 18px;
+        border: 1px solid rgba(11, 31, 44, 0.08);
+        padding: 1.3rem 1rem 1.1rem;
+        box-shadow: 0 12px 32px rgba(15, 41, 77, 0.08);
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        color: rgba(11, 31, 44, 0.9);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .past-card:hover,
+      .past-card:focus-visible {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 38px rgba(15, 41, 77, 0.15);
+      }
+
+      .past-card h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.15rem;
+        color: #1e74ff;
+      }
+
+      .past-card p {
+        margin: 0;
+        color: rgba(11, 31, 44, 0.6);
+        font-size: 0.95rem;
       }
 
       footer {
@@ -461,17 +561,6 @@
         margin-top: 1rem;
         background: #e8eef9;
         border-top: 1px solid rgba(11, 31, 44, 0.08);
-      }
-
-      .contact-links a {
-        color: #1e74ff;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      .contact-links a:hover,
-      .contact-links a:focus {
-        text-decoration: underline;
       }
 
       .section-placeholder {
@@ -487,62 +576,58 @@
         margin: 1rem auto 0;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 0.9rem;
+        gap: 0.8rem;
         padding: 0 1.25rem;
         position: relative;
         z-index: 1;
-        text-align: center;
-      }
-
-      .hero-lead {
-        margin: 0;
-        font-size: clamp(2rem, 4vw, 3.2rem);
-        font-weight: 700;
-        color: #1f4ea8;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        white-space: nowrap;
-      }
-
-      .hero-lead .hero-year {
-        font-family: "Chalkduster", "Comic Sans MS", cursive;
-        color: #d62828;
+        align-items: center;
       }
 
       .hero-content h1 {
         margin: 0;
-        font-size: clamp(0.9rem, 2vw, 1.4rem);
-        letter-spacing: 0.02em;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        letter-spacing: 0.03em;
         font-weight: 600;
         line-height: 1.35;
-        color: #2f4a75;
-        max-width: 920px;
+        color: var(--primary-blue);
+        width: 100%;
+        text-align: center;
       }
 
-      .hero-details {
-        margin: 0;
-        font-size: 0.95rem;
-        color: rgba(11, 31, 44, 0.75);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+      .hero-year {
+        color: #d62828;
+      }
+
+      .hero-meta {
+        margin: 0.1rem 0 0.4rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: rgba(40, 47, 61, 0.8);
+        text-align: center;
+        align-self: center;
+        width: 100%;
       }
 
       .hero-description {
         max-width: 920px;
         width: 100%;
-        margin: 0 auto 0.8rem;
-        color: rgba(11, 31, 44, 0.9);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        text-align: center;
+        margin: 0 0 1rem;
+        color: var(--dark);
+        font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+        line-height: 1.75;
+        text-align: left;
+        font-weight: 400;
+        align-self: center;
       }
 
       .hero-updates {
-        text-align: center;
-        margin: 0 auto 0.5rem;
-        font-size: 0.98rem;
-        color: rgba(11, 31, 44, 0.8);
+        text-align: left;
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+        color: var(--dark);
+        max-width: 920px;
+        width: 100%;
+        align-self: center;
       }
 
       .hero-updates a {
@@ -557,22 +642,22 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.85rem 2.4rem;
-        border-radius: 999px;
+        padding: 0.75rem 2rem;
+        border-radius: 18px;
         border: none;
         text-decoration: none;
         font-weight: 600;
         font-size: 1rem;
-        color: #fff;
-        background: #2a5bd7;
-        box-shadow: 0 12px 25px rgba(42, 91, 215, 0.35);
+        color: #0e5ed8;
+        background: #ffeef0;
+        box-shadow: 0 8px 18px rgba(14, 94, 216, 0.15);
         transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
 
       .hero-cta:hover,
       .hero-cta:focus {
         transform: translateY(-2px);
-        box-shadow: 0 18px 30px rgba(42, 91, 215, 0.45);
+        box-shadow: 0 4px 12px rgba(14, 94, 216, 0.25);
       }
 
       .sr-only {
@@ -586,7 +671,7 @@
         border: 0;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 900px) {
         section {
           padding: 2rem 0;
         }
@@ -607,24 +692,6 @@
         .hero-content {
           width: 100%;
           padding: 0 1rem;
-        }
-
-        .hero-lead {
-          font-size: clamp(1.6rem, 7vw, 2.4rem);
-        }
-
-        .hero-content h1 {
-          font-size: clamp(0.85rem, 4.2vw, 1.3rem);
-        }
-
-        .hero-details {
-          font-size: 0.85rem;
-          letter-spacing: 0.05em;
-        }
-
-        .hero-description {
-          width: 100%;
-          font-size: 0.95rem;
         }
       }
 
@@ -663,16 +730,11 @@
 
     <header id="overview">
       <div class="hero-content">
-        <p class="hero-lead">SSNLP <span class="hero-year">2026</span></p>
-        <h1>The 2026 Singapore Symposium on Natural Language Processing</h1>
-        <p class="hero-details">
-          21 January 2026 | Singapore | SUTD
-        </p>
+        <h1>The <span class="hero-year">2026</span> Singapore Symposium on Natural Language Processing</h1>
+        <p class="hero-meta">January 21, 2026 | SUTD | Singapore</p>
         <p class="hero-description">
-          Beyond Papers. Beyond Talks. Pure Connection. The definitive annual
-          gathering for Singapore’s NLP community. Experience a reimagined,
-          interactive symposium designed for deep dialogue and future-shaping
-          collaborations right before AAAI 2026.
+          Join the annual gathering of Singapore’s NLP community!<br />
+          Experience a reimagined, interactive symposium designed for deep dialogue and future-shaping collaborations during AAAI 2026.
         </p>
         <p class="hero-updates">
           Stay updated:
@@ -680,7 +742,13 @@
             >https://ssnlp2026.github.io/</a
           >
         </p>
-        <a class="hero-cta" href="#welcome">Learn More</a>
+        <a
+          class="hero-cta"
+          href="https://forms.gle/wT7oCMchWCRcnBbUA"
+          target="_blank"
+          rel="noopener"
+          >🔥 Call for Presentation</a
+        >
       </div>
     </header>
 
@@ -688,25 +756,7 @@
       <section id="welcome">
         <h2>Welcome</h2>
         <p class="welcome">
-          The Singapore Symposium on Natural Language Processing (SSNLP) returns
-          on Wednesday, January 21, 2026, hosted at SUTD as a full-day,
-          in-person event. Since its inception in 2018, SSNLP has stood as the
-          annual heartbeat of Singapore’s NLP community, bringing together
-          students, faculty, and industry researchers to share ongoing work and
-          spark new collaborations. Organized in strategic conjunction with
-          AAAI-26, this year’s symposium features a revitalized program designed
-          to maximize intellectual exchange. The day begins with visionary
-          insights from four invited <strong>keynote</strong> speakers exploring
-          the frontiers of the field, followed by a critical
-          <strong>panel</strong> discussion to debate emerging challenges.
-          Complementing these sessions, the technical program adopts an
-          immersive <strong>poster</strong>-only format to showcase recent
-          breakthroughs from top venues like ACL, NeurIPS, and AAAI, ensuring
-          deeper face-to-face engagement. The event culminates in dedicated
-          community sessions and a closing <strong>social event</strong> to
-          bridge academic and industrial perspectives. We look forward to
-          welcoming you to SSNLP 2026 for a stimulating day of research exchange
-          and community building.
+          The Singapore Symposium on Natural Language Processing (SSNLP) returns on Wednesday, January 21, 2026, at SUTD as a full-day, in-person event. Since 2018, SSNLP has been the annual gathering of Singapore’s NLP community, bringing together students, faculty, and industry researchers to share ongoing work and spark collaboration. Held in conjunction with AAAI-26, this year’s symposium is expected to feature invited keynotes, a panel discussion, and an immersive poster-focused program showcasing recent work from top venues such as ACL, EMNLP, NeurIPS, ICLR, and AAAI. We look forward to welcoming you to SSNLP 2026 for a day of research exchange and community building!
         </p>
         <div class="countdown-card" data-target="2026-01-21T00:00:00+08:00">
           <h3>SSNLP 2026 begins in…</h3>
@@ -732,6 +782,11 @@
         <div class="news-card">
           <h3>🎉 News</h3>
           <ul>
+            <li>
+              <span class="news-date">20 Nov 2025</span>
+              <span class="news-label">•</span>
+              SSNLP 2026 registration is now open!
+            </li>
             <li>
               <span class="news-date">18 Nov 2025</span>
               <span class="news-label">•</span>
@@ -809,6 +864,38 @@
 
       <section id="organizers">
         <h2>Organizers</h2>
+        <div class="organizer-logos">
+          <div class="organizer-logo">
+            <a href="https://www.sutd.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/sutd.png" alt="SUTD logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/ntu.png" alt="NTU logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/smu.png" alt="SMU logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/nus.png" alt="NUS logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener">
+              <img src="assets/tiktok_PNG3.png" alt="TikTok logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">
+              <img src="assets/mbzuai.png" alt="MBZUAI logo" />
+            </a>
+          </div>
+        </div>
         <table class="organizer-table">
           <tbody>
             <tr>
@@ -911,56 +998,71 @@
 
       <section id="contact">
         <h2>Contact</h2>
-        <p class="contact-links">
-          Please feel free to reach out if you have any inquiries:
-          <a href="mailto:wxzhang@sutd.edu.sg">Wenxuan Zhang</a>,
-          <a href="mailto:wangwy@ntu.edu.sg">Wenya Wang</a>,
-          <a href="mailto:dengyang17dydy@gmail.com">Deng Yang</a>
-        </p>
+        <p class="contact-note">Have inquiries? Reach out to us:</p>
+        <div class="contact-links">
+          <a href="mailto:wxzhang@sutd.edu.sg">Wenxuan Zhang</a>
+          <a href="mailto:wangwy@ntu.edu.sg">Wenya Wang</a>
+          <a href="mailto:dengyang17dydy@gmail.com">Yang Deng</a>
+        </div>
       </section>
 
       <section id="past-event">
         <h2>Past Event</h2>
-        <ul class="past-list">
-          <li>
-            <a href="https://ssnlp-website.github.io/ssnlp25/" target="_blank" rel="noopener"
-              >SSNLP 2025</a
-            >
-            · Held at SUTD
-          </li>
-          <li>
-            <a href="https://wing-nus.github.io/SSNLP-2024/" target="_blank" rel="noopener"
-              >SSNLP 2024</a
-            >
-            · Held at Town Hall Auditorium
-          </li>
-          <li>
-            <a href="https://wing-nus.github.io/ssnlp-2023/" target="_blank" rel="noopener"
-              >SSNLP 2023</a
-            >
-            · Held at NUS
-          </li>
-          <li>
-            <a href="https://wing-nus.github.io/SSNLP-2022/" target="_blank" rel="noopener"
-              >SSNLP 2022</a
-            >
-            · Held at NUS
-          </li>
-          <li>
-            <a href="https://ssnlp.org" target="_blank" rel="noopener">SSNLP 2020</a>
-            · Held 100% virtually
-          </li>
-          <li>
-            <a href="https://wing-nus.github.io/SSNLP-2019/" target="_blank" rel="noopener"
-              >SSNLP 2019</a
-            >
-            · Held at I2R
-          </li>
-          <li>
-            <a href="https://event.statnlp.org/" target="_blank" rel="noopener">SSNLP 2018</a>
-            · Inaugural event at SUTD
-          </li>
-        </ul>
+        <div class="past-grid">
+          <a
+            class="past-card"
+            href="https://ssnlp-website.github.io/ssnlp25/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>SSNLP 2025</h3>
+            <p>Held at SUTD</p>
+          </a>
+          <a
+            class="past-card"
+            href="https://wing-nus.github.io/SSNLP-2024/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>SSNLP 2024</h3>
+            <p>Held at Town Hall Auditorium</p>
+          </a>
+          <a
+            class="past-card"
+            href="https://wing-nus.github.io/ssnlp-2023/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>SSNLP 2023</h3>
+            <p>Held at NUS</p>
+          </a>
+          <a
+            class="past-card"
+            href="https://wing-nus.github.io/SSNLP-2022/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>SSNLP 2022</h3>
+            <p>Held at NUS</p>
+          </a>
+          <a class="past-card" href="https://ssnlp.org" target="_blank" rel="noopener">
+            <h3>SSNLP 2020</h3>
+            <p>Held 100% virtually</p>
+          </a>
+          <a
+            class="past-card"
+            href="https://wing-nus.github.io/SSNLP-2019/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>SSNLP 2019</h3>
+            <p>Held at I2R</p>
+          </a>
+          <a class="past-card" href="https://event.statnlp.org/" target="_blank" rel="noopener">
+            <h3>SSNLP 2018</h3>
+            <p>Inaugural event at SUTD</p>
+          </a>
+        </div>
       </section>
     </main>
     <footer>
