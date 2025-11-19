@@ -217,7 +217,7 @@
 
       .schedule-header p {
         margin: 0.3rem 0;
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: rgba(11, 31, 44, 0.8);
       }
 
@@ -318,14 +318,26 @@
         margin-bottom: 0.35rem;
       }
 
-      .organizer-logos {
-        width: min(80vw, 960px);
-        margin: 1.4rem auto 2rem;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(150px, 1fr));
-        gap: 1.5rem;
-        justify-items: center;
+      .sponsor-logos {
+        display: flex;
+        justify-content: center;
         align-items: center;
+        gap: 80px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .sponsor-logo img {
+        max-height: 120px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1));
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+
+      .sponsor-logo img:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
       }
 
       @media (max-width: 700px) {
@@ -444,8 +456,8 @@
 
       .news-card h3 {
         margin: 0 0 0.75rem;
-        font-size: 1.1rem;
-        letter-spacing: 0.1em;
+        font-size: 1.4rem;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
         color: #d6482f;
       }
@@ -455,7 +467,7 @@
         padding: 0;
         margin: 0;
         color: rgba(11, 31, 44, 0.9);
-        font-size: 0.95rem;
+        font-size: 1.1rem;
       }
 
       .news-card li {
@@ -470,40 +482,11 @@
       }
 
       .contact-note {
-        margin: 0 auto 0.75rem;
+        padding: 12px 5px;
+        border-radius: 6px;
+        margin-top: 24px;
         text-align: center;
-        font-size: 1.15rem;
-        color: rgba(11, 31, 44, 0.85);
-      }
-
-      .contact-links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        font-size: 1.2rem;
-        margin: 0;
-      }
-
-      .contact-links a {
-        color: #1e74ff;
-        text-decoration: none;
-        font-weight: 600;
-        position: relative;
-        padding: 0 0.6rem;
-      }
-
-      .contact-links a + a::before {
-        content: "•";
-        position: absolute;
-        left: -0.75rem;
-        color: rgba(30, 116, 255, 0.45);
-      }
-
-      .contact-links a:hover,
-      .contact-links a:focus {
-        text-decoration: underline;
+        font-size: 1.25rem;
       }
 
       .past-grid {
@@ -600,7 +583,7 @@
 
       .hero-meta {
         margin: 0.1rem 0 0.4rem;
-        font-size: 1rem;
+        font-size: 1.3rem;
         font-weight: 500;
         color: rgba(40, 47, 61, 0.8);
         text-align: center;
@@ -720,45 +703,28 @@
         <li><a href="#overview">Overview</a></li>
         <li><a href="#programme">Programme</a></li>
         <li><a href="#speaker">Speaker</a></li>
-        <li><a href="#organizers">Organizers</a></li>
-        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#organizers">Organizers</a></li>        
         <li><a href="#location">Location</a></li>
-        <li><a href="#contact">Contact</a></li>
         <li><a href="#past-event">Past Event</a></li>
       </ul>
     </nav>
 
     <header id="overview">
       <div class="hero-content">
-        <h1>The <span class="hero-year">2026</span> Singapore Symposium on Natural Language Processing</h1>
-        <p class="hero-meta">January 21, 2026 | SUTD | Singapore</p>
-        <p class="hero-description">
-          Join the annual gathering of Singapore’s NLP community!<br />
-          Experience a reimagined, interactive symposium designed for deep dialogue and future-shaping collaborations during AAAI 2026.
-        </p>
-        <p class="hero-updates">
-          Stay updated:
-          <a href="https://ssnlp2026.github.io/" target="_blank" rel="noopener"
-            >https://ssnlp2026.github.io/</a
-          >
-        </p>
+        <h1>The <span class="hero-year">2026</span> Singapore Symposium on Natural Language Processing (SSNLP 2026)</h1>
+        <p class="hero-meta">in partnership with IMDA's Technical Sharing Session</p>
         <a
           class="hero-cta"
           href="https://forms.gle/wT7oCMchWCRcnBbUA"
           target="_blank"
           rel="noopener"
-          >🔥 Call for Presentation</a
+          >🔥 Call for Presentation is Open!</a
         >
       </div>
     </header>
 
     <main>
-      <section id="welcome">
-        <h2>Welcome</h2>
-        <p class="welcome">
-          The Singapore Symposium on Natural Language Processing (SSNLP) returns on Wednesday, January 21, 2026, at SUTD as a full-day, in-person event. Since 2018, SSNLP has been the annual gathering of Singapore’s NLP community, bringing together students, faculty, and industry researchers to share ongoing work and spark collaboration. Held in conjunction with AAAI-26, this year’s symposium is expected to feature invited keynotes, a panel discussion, and an immersive poster-focused program showcasing recent work from top venues such as ACL, EMNLP, NeurIPS, ICLR, and AAAI. We look forward to welcoming you to SSNLP 2026 for a day of research exchange and community building!
-        </p>
-        <div class="countdown-card" data-target="2026-01-21T00:00:00+08:00">
+      <div class="countdown-card" data-target="2026-01-21T00:00:00+08:00">
           <h3>SSNLP 2026 begins in…</h3>
           <div class="countdown-grid">
             <div class="countdown-item">
@@ -779,13 +745,19 @@
             </div>
           </div>
         </div>
+
+      <section id="welcome">
+        <h2>Welcome</h2>
+        <p class="welcome">
+          The Singapore Symposium on Natural Language Processing (SSNLP) returns on Wednesday, January 21, 2026, at SUTD as a full-day, in-person event. Since 2018, SSNLP has been the annual gathering of Singapore’s NLP community, bringing together students, faculty, and industry researchers to share ongoing work and spark collaboration. Held in conjunction with AAAI 2026, this year’s symposium will feature invited keynotes from leading researchers in the field, a panel discussion, and an immersive poster-focused program showcasing recent work from Singapore-based researchers published in top venues such as ACL, EMNLP, NeurIPS, ICLR, and AAAI this year. We look forward to welcoming you to SSNLP 2026 for a day of research exchange and community building!        
+        </p>
         <div class="news-card">
           <h3>🎉 News</h3>
           <ul>
             <li>
               <span class="news-date">20 Nov 2025</span>
               <span class="news-label">•</span>
-              SSNLP 2026 registration is now open!
+              <a href="https://forms.gle/wT7oCMchWCRcnBbUA">Call for Presentation</a> is now open, fill the submission form by Nov 30 to share your latest work to the community!
             </li>
             <li>
               <span class="news-date">18 Nov 2025</span>
@@ -803,6 +775,9 @@
             <p>
               Date: Jan 21, 2026 (Wed) | Venue: Albert Hong Lecture Theatre 1 &amp;
               Campus Center @ SUTD
+            </p>
+            <p style="color: red;">
+              Program details are to be confirmed and will be updated closer to the event date.
             </p>
           </div>
           <table class="schedule-table">
@@ -843,13 +818,13 @@
                 <td class="schedule-presenter">Moderators &amp; Community Leads</td>
               </tr>
               <tr>
-                <td class="schedule-time">15:10–16:00</td>
+                <td class="schedule-time">15:10–16:40</td>
                 <td class="schedule-session"><strong>Poster Presentations</strong></td>
                 <td class="schedule-presenter">All Accepted Posters</td>
               </tr>
               <tr>
-                <td class="schedule-time">16:00–17:00</td>
-                <td class="schedule-session"><strong>Social Mixer</strong></td>
+                <td class="schedule-time">16:40–17:00</td>
+                <td class="schedule-session"><strong>Closing Remarks</strong></td>
                 <td class="schedule-presenter">Hosts &amp; Attendees</td>
               </tr>
             </tbody>
@@ -858,44 +833,13 @@
       </section>
 
       <section id="speaker">
-        <h2>Speaker</h2>
-        <p class="section-placeholder">TBD</p>
+        <h2>Keynote Speakers</h2>
+        <p class="section-placeholder">To be announced soon -- stay tuned!</p> 
+        <p class="section-placeholder"> Check out our previous invited speakers from: <a href="https://ssnlp-website.github.io/ssnlp25/">SSNLP 2025</a>, <a href="https://wing-nus.github.io/SSNLP-2024/">SSNLP 2024</a>, with more from <a href="#past-event">previous years</a>.</p>
       </section>
 
       <section id="organizers">
         <h2>Organizers</h2>
-        <div class="organizer-logos">
-          <div class="organizer-logo">
-            <a href="https://www.sutd.edu.sg/" target="_blank" rel="noopener">
-              <img src="assets/sutd.png" alt="SUTD logo" />
-            </a>
-          </div>
-          <div class="organizer-logo">
-            <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener">
-              <img src="assets/ntu.png" alt="NTU logo" />
-            </a>
-          </div>
-          <div class="organizer-logo">
-            <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener">
-              <img src="assets/smu.png" alt="SMU logo" />
-            </a>
-          </div>
-          <div class="organizer-logo">
-            <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">
-              <img src="assets/nus.png" alt="NUS logo" />
-            </a>
-          </div>
-          <div class="organizer-logo">
-            <a href="https://www.tiktok.com/" target="_blank" rel="noopener">
-              <img src="assets/tiktok_PNG3.png" alt="TikTok logo" />
-            </a>
-          </div>
-          <div class="organizer-logo">
-            <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">
-              <img src="assets/mbzuai.png" alt="MBZUAI logo" />
-            </a>
-          </div>
-        </div>
         <table class="organizer-table">
           <tbody>
             <tr>
@@ -984,25 +928,43 @@
             </tr>
           </tbody>
         </table>
+
+        <p class="contact-note">
+          📮 For any inquiries, feel free to reach out to 
+          <a href="mailto:wxzhang@sutd.edu.sg">Wenxuan Zhang</a>, 
+          <a href="mailto:wangwy@ntu.edu.sg">Wenya Wang</a>, 
+          <a href="mailto:dengyang17dydy@gmail.com">Yang Deng</a>.
+        </p>
+
       </section>
 
       <section id="sponsors">
         <h2>Sponsors</h2>
-        <p class="section-placeholder">TBD</p>
+
+        <div class="sponsor-logos">
+          <div class="sponsor-logo">
+            <a href="https://www.imda.gov.sg/" target="_blank" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/en/5/5a/Infocomm_Media_Development_Authority_logo.svg" 
+                   alt="IMDA logo" />
+            </a>
+          </div>
+          <div class="sponsor-logo">
+            <a href="https://www.sutd.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/sutd.png" alt="SUTD logo" />
+            </a>
+          </div>
+        </div>
       </section>
+
 
       <section id="location">
         <h2>Location</h2>
-        <p class="section-placeholder">TBD</p>
-      </section>
+        
+        <p>SSNLP 2025 will be held at Albert Hong Lecture Theatre 1, SUTD, 8 Somapah Rd, Singapore 487372.
+        Direction instruction will be given near the date.</p>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p class="contact-note">Have inquiries? Reach out to us:</p>
-        <div class="contact-links">
-          <a href="mailto:wxzhang@sutd.edu.sg">Wenxuan Zhang</a>
-          <a href="mailto:wangwy@ntu.edu.sg">Wenya Wang</a>
-          <a href="mailto:dengyang17dydy@gmail.com">Yang Deng</a>
+        <div style="text-align:center;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7977.4503259942585!2d103.963759!3d1.341258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3cd899f260cb%3A0x99becabc6d025518!2sSingapore%20University%20of%20Technology%20and%20Design%20(SUTD)!5e0!3m2!1sen!2ssg!4v1739600767784!5m2!1sen!2ssg" width="1000" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
 
