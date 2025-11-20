@@ -340,14 +340,21 @@
         opacity: 0.9;
       }
 
-      @media (max-width: 700px) {
-        .organizer-logos {
-          grid-template-columns: repeat(2, minmax(140px, 1fr));
-        }
+      .organizer-logos {
+        width: min(90vw, 1100px);
+        margin: 1rem auto 0.75rem;
+        display: flex;
+        gap: 1.2rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0.25rem;
       }
 
       .organizer-logo {
-        padding: 1rem 0.75rem;
+        padding: 0.85rem 0.75rem;
+        flex: 0 0 160px;
       }
 
       .organizer-logo a {
@@ -367,7 +374,7 @@
       .organizer-table {
         width: min(70vw, 900px);
         border-collapse: collapse;
-        margin: 1.5rem auto 0;
+        margin: 0.75rem auto 0;
         border-top: 2px solid rgba(11, 31, 44, 0.3);
         border-bottom: 2px solid rgba(11, 31, 44, 0.3);
       }
@@ -840,6 +847,28 @@
 
       <section id="organizers">
         <h2>Organizers</h2>
+        <div class="organizer-logos">
+          <div class="organizer-logo">
+            <a href="https://www.sutd.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/sutd.png" alt="SUTD logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/ntu.png" alt="NTU logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/smu.png" alt="SMU logo" />
+            </a>
+          </div>
+          <div class="organizer-logo">
+            <a href="https://www.nus.edu.sg/" target="_blank" rel="noopener">
+              <img src="assets/nus.png" alt="NUS logo" />
+            </a>
+          </div>
+        </div>
         <table class="organizer-table">
           <tbody>
             <tr>
