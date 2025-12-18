@@ -229,7 +229,7 @@
 
       .schedule-table th,
       .schedule-table td {
-        padding: 1rem 1.25rem;
+        padding: 0.55rem 0.85rem;
         border-bottom: 1px solid rgba(11, 31, 44, 0.08);
         text-align: left;
       }
@@ -259,8 +259,122 @@
       .schedule-break td {
         text-align: center;
         font-weight: 600;
-        color: #1f4ea8;
+        color: #6b7280;
         background: transparent;
+      }
+
+      .schedule-speaker {
+        display: block;
+        margin-top: 0.15rem;
+        font-weight: 700;
+        color: #f97316;
+      }
+
+      .schedule-speaker-label {
+        color: #fb923c;
+        margin-right: 0.35rem;
+      }
+
+      .schedule-speaker-name {
+        color: #ea580c;
+      }
+
+      .poster-toggle {
+        margin: 1.4rem 0 0.5rem;
+      }
+
+      .poster-toggle summary {
+        color: #1e74ff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .poster-toggle summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .poster-table-wrapper {
+        margin-top: 0.9rem;
+        border: 1px solid rgba(11, 31, 44, 0.08);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 24px rgba(11, 31, 44, 0.06);
+      }
+
+      .poster-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+
+      .poster-table th {
+        text-align: left;
+        padding: 0.7rem 1rem;
+        background: #f0f4fb;
+        color: #0b1f2c;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      .poster-table td {
+        padding: 0.7rem 1rem;
+        vertical-align: top;
+        border-top: 1px solid rgba(11, 31, 44, 0.05);
+      }
+
+      .poster-table tbody tr:nth-child(odd) {
+        background: #ffffff;
+      }
+
+      .poster-table tbody tr:nth-child(even) {
+        background: #f6f7fa;
+      }
+
+      .poster-table th:first-child,
+      .poster-table td:first-child {
+        text-align: center;
+        white-space: nowrap;
+        font-weight: 700;
+        color: #0b1f2c;
+        width: 70px;
+        vertical-align: middle;
+      }
+
+      .poster-authors,
+      .poster-title,
+      .poster-venue {
+        display: inline;
+        margin: 0;
+      }
+
+      .poster-authors {
+        color: #4b5563;
+        line-height: 1.5;
+        font-weight: 500;
+      }
+
+      .poster-title {
+        font-weight: 700;
+        color: #0b1f2c;
+      }
+
+      .poster-venue {
+        font-weight: 700;
+        color: #1f4ea8;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .poster-title::before,
+      .poster-venue::before {
+        content: " · ";
+        color: #9ca3af;
+        font-weight: 600;
       }
 
       .schedule-group td {
@@ -497,15 +611,10 @@
       }
 
       .past-grid {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         gap: 1.25rem;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-
-      @media (min-width: 1024px) {
-        .past-grid {
-          grid-template-columns: repeat(4, 1fr);
-        }
+        justify-content: center;
       }
 
       .past-card {
@@ -523,6 +632,7 @@
         text-decoration: none;
         color: rgba(11, 31, 44, 0.9);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        flex: 0 1 240px;
       }
 
       .past-card:hover,
@@ -541,6 +651,60 @@
         margin: 0;
         color: rgba(11, 31, 44, 0.6);
         font-size: 0.95rem;
+      }
+
+      .invited-section {
+        background: transparent;
+        border-radius: 0;
+        padding: 0 0 1.5rem;
+        box-shadow: none;
+        border: none;
+      }
+
+      .invited-subtitle {
+        margin: 0 0 2rem;
+        text-align: center;
+        font-size: 1.05rem;
+        color: #4b5563;
+      }
+
+      .invited-grid {
+        display: grid;
+        gap: 1.8rem;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-items: center;
+      }
+
+      .invited-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.85rem;
+        text-align: center;
+      }
+
+      .invited-photo {
+        width: 12rem;
+        height: 12rem;
+        object-fit: cover;
+        border-radius: 9999px;
+        box-shadow: 0 14px 32px rgba(11, 31, 44, 0.18);
+        border: 4px solid #ffffff;
+        background: #ffffff;
+      }
+
+      .invited-name {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #d62828;
+      }
+
+      .invited-affiliation {
+        margin: -0.3rem 0 0;
+        color: #6b7280;
+        font-size: 1rem;
+        font-weight: 500;
       }
 
       footer {
@@ -697,6 +861,24 @@
           width: min(80vw, 1440px);
         }
       }
+
+      @media (min-width: 1024px) {
+        .invited-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 640px) and (max-width: 1023px) {
+        .invited-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 639px) {
+        .invited-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -790,59 +972,346 @@
           <table class="schedule-table">
             <thead>
               <tr>
-                <th style="width: 18%">Time</th>
-                <th>Session</th>
-                <th style="width: 22%">Presenter</th>
+                <th style="width: 20%">Time</th>
+                <th>Event</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="schedule-time">09:00–09:50</td>
-                <td class="schedule-session"><strong>Invited Talk I</strong></td>
-                <td class="schedule-presenter">Speaker A</td>
+                <td class="schedule-time">09:00–09:20</td>
+                <td class="schedule-session"><strong>Registration</strong></td>
               </tr>
               <tr>
-                <td class="schedule-time">09:50–10:40</td>
-                <td class="schedule-session"><strong>Invited Talk II</strong></td>
-                <td class="schedule-presenter">Speaker B</td>
+                <td class="schedule-time">09:20–09:30</td>
+                <td class="schedule-session"><strong>Welcome and Opening Remarks</strong></td>
               </tr>
               <tr>
-                <td class="schedule-time">10:40–11:30</td>
-                <td class="schedule-session"><strong>Invited Talk III</strong></td>
-                <td class="schedule-presenter">Speaker C</td>
+                <td class="schedule-time">09:30–10:00</td>
+                <td class="schedule-session">
+                  <strong>Keynote 1</strong>
+                  <span class="schedule-speaker">
+                    <span class="schedule-speaker-label">Speaker:</span>
+                    <span class="schedule-speaker-name">Hung-yi Lee</span>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="schedule-time">10:00–10:30</td>
+                <td class="schedule-session"><strong>Singapore Agency Talks</strong></td>
               </tr>
               <tr class="schedule-break">
-                <td colspan="3">Lunch Break</td>
+                <td colspan="2">10:30–10:50 - Short Break</td>
               </tr>
               <tr>
-                <td class="schedule-time">13:30–14:20</td>
-                <td class="schedule-session"><strong>Invited Talk IV</strong></td>
-                <td class="schedule-presenter">Industry Leader</td>
+                <td class="schedule-time">10:50–11:20</td>
+                <td class="schedule-session">
+                  <strong>Keynote 2</strong>
+                  <span class="schedule-speaker">
+                    <span class="schedule-speaker-label">Speaker:</span>
+                    <span class="schedule-speaker-name">Yuki Arase</span>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td class="schedule-time">14:20–15:10</td>
-                <td class="schedule-session"><strong>Panel &amp; Community Session</strong></td>
-                <td class="schedule-presenter">Moderators &amp; Community Leads</td>
+                <td class="schedule-time">11:20–11:50</td>
+                <td class="schedule-session">
+                  <strong>Keynote 3</strong>
+                  <span class="schedule-speaker">
+                    <span class="schedule-speaker-label">Speaker:</span>
+                    <span class="schedule-speaker-name">Tanmoy Chakraborty</span>
+                  </span>
+                </td>
+              </tr>
+              <tr class="schedule-break">
+                <td colspan="2">12:00–13:00 - Lunch Break</td>
               </tr>
               <tr>
-                <td class="schedule-time">15:10–16:40</td>
-                <td class="schedule-session"><strong>Poster Presentations</strong></td>
-                <td class="schedule-presenter">All Accepted Posters</td>
+                <td class="schedule-time">13:00–14:30</td>
+                <td class="schedule-session">
+                  <strong>Poster Session</strong>
+                  <a href="#poster-list">Details ↓</a>
+                </td>
               </tr>
               <tr>
-                <td class="schedule-time">16:40–17:00</td>
+                <td class="schedule-time">14:40–15:10</td>
+                <td class="schedule-session">
+                  <strong>Keynote 4</strong>
+                  <span class="schedule-speaker">
+                    <span class="schedule-speaker-label">Speaker:</span>
+                    <span class="schedule-speaker-name">Derek F. Wong</span>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="schedule-time">15:10–15:40</td>
+                <td class="schedule-session"><strong>Keynote 5</strong></td>
+              </tr>
+              <tr class="schedule-break">
+                <td colspan="2">15:40–16:20 - Coffee Break</td>
+              </tr>
+              <tr>
+                <td class="schedule-time">16:20–17:20</td>
+                <td class="schedule-session"><strong>Panel Discussion</strong></td>
+              </tr>
+              <tr>
+                <td class="schedule-time">17:20–17:30</td>
                 <td class="schedule-session"><strong>Closing Remarks</strong></td>
-                <td class="schedule-presenter">Hosts &amp; Attendees</td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <details class="poster-toggle" id="poster-list">
+          <summary>Here is the poster list ↓</summary>
+          <div class="poster-table-wrapper">
+            <table class="poster-table">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Poster Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <p class="poster-authors">Youchao Zhou, Heyan Huang, Yicheng Liu, Rui Dai, Xinglin Wang, Xingchen Zhang, Shumin Shi, Yang Deng</p>
+                    <div class="poster-title">Do Retrieval Augmented Language Models Know When They Don't Know?</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <p class="poster-authors">Mengfan Li, Xuanhua Shi, Yang Deng</p>
+                    <div class="poster-title">RecToM: A Benchmark for Evaluating Machine Theory of Mind in LLM-based Conversational Recommender Systems</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <p class="poster-authors">Wenzheng Zeng, Mingyu Ouyang, Langyuan Cui, Hwee Tou Ng</p>
+                    <div class="poster-title">SlideTailor: Personalized Presentation Slide Generation for Scientific Papers</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>
+                    <p class="poster-authors">Moxin Li, Yuantao Zhang, Wenjie Wang, Wentao Shi, Zhuo Liu, Fuli Feng, Tat-Seng Chua</p>
+                    <div class="poster-title">Self-improvement towards Pareto Optimality: Mitigating Preference Conflicts in Multi-objective Alignment</div>
+                    <div class="poster-venue">ACL 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>
+                    <p class="poster-authors">Mingzhe Du, Luu Anh Tuan, Yue Liu, Yuhao Qing, Dong Huang, Xinyi He, Qian Liu, Zejun Ma, See-Kiong Ng</p>
+                    <div class="poster-title">Afterburner: Reinforcement Learning Facilitates Self-Improving Code Efficiency Optimization</div>
+                    <div class="poster-venue">NeurIPS 2025 (Preprint)</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>
+                    <p class="poster-authors">Miaoyu Li, Qin Chao, Boyang Li</p>
+                    <div class="poster-title">Two Causally Related Needles in a Video Haystack</div>
+                    <div class="poster-venue">NeurIPS 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>
+                    <p class="poster-authors">Yi Feng, Jiaqi Wang, Wenxuan Zhang, Zhuang Chen, Yutong Shen, Xiyao Xiao, Minlie Huang, Liping Jing, Jian Yu</p>
+                    <div class="poster-title">Reframe Your Life Story: Interactive Narrative Therapist and Innovative Moment Assessment with Large Language Models</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>
+                    <p class="poster-authors">Chengtao Lv, Bilang Zhang, Yang Yong, Ruihao Gong, Yushi Huang, Shiqiao Gu, Jiajun Wu, Yumeng Shi, Jinyang Guo, Wenya Wang</p>
+                    <div class="poster-title">LLMC+: Benchmarking Vision-Language Model Compression with a Plug-and-play Toolkit</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>
+                    <p class="poster-authors">Kuicai Dong, Yujing Chang, Derrick Goh Xin Deik, Dexun Li, Ruiming Tang, Yong Liu</p>
+                    <div class="poster-title">MMDocIR: Benchmarking Multimodal Retrieval for Long Documents</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>
+                    <p class="poster-authors">Quanyu Long*, Jianda Chen*, Zhengyuan Liu, Nancy F. Chen, Wenya Wang, Sinno Jialin Pan</p>
+                    <div class="poster-title">Reinforcing Compositional Retrieval: Retrieving Step-by-Step for Composing Informative Contexts</div>
+                    <div class="poster-venue">ACL 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>
+                    <p class="poster-authors">Jianzhu Bao, Yuqi Huang, Yang Sun, Wenya Wang, Yice Zhang, Bojun Jin, Ruifeng Xu</p>
+                    <div class="poster-title">Exploring Quality and Diversity in Synthetic Data Generation for Argument Mining</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>
+                    <p class="poster-authors">Guizhen Chen, Weiwen Xu, Hao Zhang, Hou Pong Chan, Chaoqun Liu, Lidong Bing, Deli Zhao, Anh Tuan Luu, Yu Rong</p>
+                    <div class="poster-title">FineReason: Evaluating and Improving LLMs' Deliberate Reasoning through Reflective Puzzle Solving</div>
+                    <div class="poster-venue">ACL 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>
+                    <p class="poster-authors">Guizhen Chen, Weiwen Xu, Hao Zhang, Hou Pong Chan, Deli Zhao, Anh Tuan Luu, Yu Rong</p>
+                    <div class="poster-title">GeoPQA: Bridging the Visual Perception Gap in MLLMs for Geometric Reasoning</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>
+                    <p class="poster-authors">Qian Wang, Zhanzhi Lou, Zhenheng Tang, Nuo Chen, Xuandong Zhao, Wenxuan Zhang, Dawn Song, Bingsheng He</p>
+                    <div class="poster-title">Assessing Judging Bias in Large Reasoning Models: An Empirical Study</div>
+                    <div class="poster-venue">COLM 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>
+                    <p class="poster-authors">Tongyao Zhu, Qian Liu, Haonan Wang, Shiqi Chen, Xiangming Gu, Tianyu Pang, Min-Yen Kan</p>
+                    <div class="poster-title">SkyLadder: Better and Faster Pretraining via Context Window Scheduling</div>
+                    <div class="poster-venue">NeurIPS 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>
+                    <p class="poster-authors">Qiongqiong Wang, Hardik B. Sailor, Tianchi Liu, Wenyu Zhang, Muhammad Huzaifah, Nattadaporn Lertcheva, Shuo Sun, Nancy F. Chen, Jinyang Wu, Ai Ti Aw</p>
+                    <div class="poster-title">Benchmarking Contextual and Paralinguistic Reasoning in Speech-LLMs: A Case Study with In-the-Wild Data</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>17</td>
+                  <td>
+                    <p class="poster-authors">Nicholas Sadjoli, Tim Siefken, Atin Ghosh, Yifan Mai, Daniel Dahlmeier</p>
+                    <div class="poster-title">Optimization before Evaluation: Evaluation with Unoptimized Prompts Can be Misleading</div>
+                    <div class="poster-venue">ACL 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>18</td>
+                  <td>
+                    <p class="poster-authors">Fanxiao Li, Jiaying Wu, Tingchao Fu, Yunyun Dong, Bingbing Song, Wei Zhou</p>
+                    <div class="poster-title">Drifting Away from Truth: GenAI-Driven News Diversity Challenges LVLM-Based Misinformation Detection</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>19</td>
+                  <td>
+                    <p class="poster-authors">Burak Satar, Zhixin Ma, Patrick A. Irawan, Wilfried A. Mulyawan, Jing Jiang, Ee-Peng Lim, Chong-Wah Ngo</p>
+                    <div class="poster-title">Seeing Culture: A Benchmark for Visual Reasoning and Grounding</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>
+                    <p class="poster-authors">Yuxin Chen, Yiran Zhao, Yang Zhang, An Zhang, Kenji Kawaguchi, Shafiq Joty, Junnan Li, Tat-Seng Chua, Michael Qizhe Shish, Wenxuan Zhang</p>
+                    <div class="poster-title">The Emergence of Abstract Thought in Large Language Models Beyond Any Language</div>
+                    <div class="poster-venue">NeurIPS 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>21</td>
+                  <td>
+                    <p class="poster-authors">Yixuan Tang, Jincheng Wang, Anthony K.H. Tung</p>
+                    <div class="poster-title">The Missing Parts: Augmenting Fact Verification with Half-Truth Detection</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>22</td>
+                  <td>
+                    <p class="poster-authors">Renjie Luo, Jiaxi Li, Chen Huang, Wei Lu</p>
+                    <div class="poster-title">Through the Valley: Path to Effective Long CoT Training for Small Language Models</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>23</td>
+                  <td>
+                    <p class="poster-authors">Yumeng Shi, Quanyu Long, Wenya Wang</p>
+                    <div class="poster-title">Static or Dynamic: Towards Query-Adaptive Token Selection for Video Question Answering</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>24</td>
+                  <td>
+                    <p class="poster-authors">Yumeng Shi, Quanyu Long, Yin Wu, Wenya Wang</p>
+                    <div class="poster-title">Causality Matters: How Temporal Information Emerges in Video Language Models</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>25</td>
+                  <td>
+                    <p class="poster-authors">Yisong Miao, Min-Yen Kan</p>
+                    <div class="poster-title">Discursive Circuits: How Do Language Models Understand Discourse Relations?</div>
+                    <div class="poster-venue">EMNLP 2025</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td>
+                    <p class="poster-authors">Weihua Zheng, Xin Huang, Zhengyuan Liu, Tarun Kumar Vangani, Bowei Zou, Xiyan Tao, Yuhao Wu, Ai Ti Aw, Nancy F. Chen, Roy Ka-Wei Lee</p>
+                    <div class="poster-title">AdaMCoT: Rethinking Cross-Lingual Factual Reasoning through Adaptive Multilingual Chain-of-Thought</div>
+                    <div class="poster-venue">AAAI 2026</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
       </section>
 
       <section id="speaker">
-        <h2>Keynote Speakers</h2>
-        <p class="section-placeholder">To be announced soon -- stay tuned!</p> 
-        <p class="section-placeholder"> Check out our previous invited speakers from: <a href="https://ssnlp-website.github.io/ssnlp25/">SSNLP 2025</a>, <a href="https://wing-nus.github.io/SSNLP-2024/">SSNLP 2024</a>, with more from <a href="#past-event">previous years</a>.</p>
+        <h2>Invited Speakers</h2>
+        <div class="invited-section">
+          <div class="invited-grid">
+            <div class="invited-card">
+              <img src="assets/lee.jpg" alt="Hung-yi Lee" class="invited-photo" />
+              <p class="invited-name">Hung-yi Lee</p>
+              <p class="invited-affiliation">National Taiwan University</p>
+            </div>
+            <div class="invited-card">
+              <img src="assets/arase.jpg" alt="Yuki Arase" class="invited-photo" />
+              <p class="invited-name">Yuki Arase</p>
+              <p class="invited-affiliation">Tokyo Institute of Technology</p>
+            </div>
+            <div class="invited-card">
+              <img src="assets/Chakraborty.png" alt="Tanmoy Chakraborty" class="invited-photo" />
+              <p class="invited-name">Tanmoy Chakraborty</p>
+              <p class="invited-affiliation">Indian Institute of Technology, Delhi</p>
+            </div>
+            <div class="invited-card">
+              <img src="assets/wong.png" alt="Derek F. Wong" class="invited-photo" />
+              <p class="invited-name">Derek F. Wong</p>
+              <p class="invited-affiliation">University of Macau</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="organizers">
