@@ -244,11 +244,15 @@
       .schedule-time {
         font-weight: 600;
         white-space: nowrap;
-        color: #1b3b66;
+        color: #0b1f2c;
+      }
+
+      .schedule-session {
+        color: #0b1f2c;
       }
 
       .schedule-session strong {
-        color: #00BFFF;
+        color: #0b1f2c;
       }
 
       .schedule-presenter {
@@ -669,10 +673,10 @@
       }
 
       .invited-grid {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         gap: 1.8rem;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        justify-items: center;
+        justify-content: center;
       }
 
       .invited-card {
@@ -681,6 +685,8 @@
         align-items: center;
         gap: 0.85rem;
         text-align: center;
+        flex: 1 1 280px;
+        max-width: 320px;
       }
 
       .invited-photo {
@@ -872,23 +878,6 @@
         }
       }
 
-      @media (min-width: 1024px) {
-        .invited-grid {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-      }
-
-      @media (min-width: 640px) and (max-width: 1023px) {
-        .invited-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 639px) {
-        .invited-grid {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body>
@@ -901,10 +890,10 @@
         </li>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#programme">Programme</a></li>
-        <li><a href="#speaker">Speaker</a></li>
+        <li><a href="#speaker">Speakers</a></li>
         <li><a href="#organizers">Organizers</a></li>        
         <li><a href="#location">Location</a></li>
-        <li><a href="#past-event">Past Event</a></li>
+        <li><a href="#past-event">Past Events</a></li>
       </ul>
     </nav>
 
@@ -917,7 +906,7 @@
           href="https://forms.gle/wT7oCMchWCRcnBbUA"
           target="_blank"
           rel="noopener"
-          >🔥 Call for Presentation is Open!</a
+          >🔥 Call for Presentations is Open!</a
         >
       </div>
     </header>
@@ -956,7 +945,7 @@
             <li>
               <span class="news-date">20 Nov 2025</span>
               <span class="news-label">•</span>
-              <a href="https://forms.gle/wT7oCMchWCRcnBbUA">Call for Presentation</a> is now open, fill the submission form by Dec. 7 to share your latest work to the community!
+              <a href="https://forms.gle/wT7oCMchWCRcnBbUA">Call for Presentations</a> is now open, fill the submission form by Dec. 7 to share your latest work to the community!
             </li>
             <li>
               <span class="news-date">18 Nov 2025</span>
@@ -1296,6 +1285,11 @@
               <p class="invited-name"><a href="https://www.fst.um.edu.mo/personal/derek-wong/" target="_blank" rel="noopener">Derek F. Wong</a></p>
               <p class="invited-affiliation">University of Macau</p>
             </div>
+            <div class="invited-card">
+              <img src="assets/yitay.webp" alt="Yi Tay" class="invited-photo" />
+              <p class="invited-name"><a href="https://www.yitay.net/" target="_blank" rel="noopener">Yi Tay</a></p>
+              <p class="invited-affiliation">Google DeepMind</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1444,7 +1438,7 @@
       <section id="location">
         <h2>Location</h2>
         
-        <p>SSNLP 2025 will be held at Albert Hong Lecture Theatre 1, SUTD, 8 Somapah Rd, Singapore 487372.
+        <p>SSNLP 2026 will be held at Albert Hong Lecture Theatre 1, SUTD, 8 Somapah Rd, Singapore 487372.
         Direction instruction will be given near the date.</p>
 
         <div style="text-align:center;">
@@ -1453,7 +1447,7 @@
       </section>
 
       <section id="past-event">
-        <h2>Past Event</h2>
+        <h2>Past Events</h2>
         <div class="past-grid">
           <a
             class="past-card"
