@@ -596,14 +596,14 @@
       }
 
       .news-card li {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
+        display: block;
+        margin-bottom: 0.3rem;
       }
 
       .news-date {
         font-weight: 600;
         color: #d62828;
+        white-space: nowrap;
       }
 
       .contact-note {
@@ -808,26 +808,27 @@
 
       .hero-cta {
         align-self: center;
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.75rem 2rem;
-        border-radius: 18px;
+        padding: 0.95rem 2.6rem;
+        border-radius: 20px;
         border: none;
         text-decoration: none;
         font-weight: 600;
-        font-size: 1rem;
-        color: #0e5ed8;
-        background: #ffeef0;
-        box-shadow: 0 8px 18px rgba(14, 94, 216, 0.15);
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        font-size: 1.1rem;
+        color: #ffffff;
+        background: linear-gradient(135deg, #1e73ff, #0f5ddc);
+        box-shadow: 0 12px 22px rgba(15, 93, 220, 0.28);
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
       }
 
       .hero-cta:hover,
       .hero-cta:focus {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(14, 94, 216, 0.25);
+        box-shadow: 0 8px 18px rgba(15, 93, 220, 0.35);
+        background: linear-gradient(135deg, #2c7dff, #1465e6);
       }
 
       .sr-only {
@@ -903,10 +904,10 @@
         <p class="hero-meta">in partnership with IMDA's Technical Sharing Session</p>
         <a
           class="hero-cta"
-          href="https://forms.gle/wT7oCMchWCRcnBbUA"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdQsVXk51YIZhsHaWS-1gsLCH_LH9DrNyhXYBoJrDFj87aU-Q/viewform?pli=1"
           target="_blank"
           rel="noopener"
-          >🔥 Call for Presentations is Open!</a
+          >👉🏻 Register Now!</a
         >
       </div>
     </header>
@@ -942,6 +943,11 @@
         <div class="news-card">
           <h3>🎉 News</h3>
           <ul>
+            <li>
+              <span class="news-date">22 Dec 2025</span>
+              <span class="news-label">•</span>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQsVXk51YIZhsHaWS-1gsLCH_LH9DrNyhXYBoJrDFj87aU-Q/viewform?pli=1">Registration</a> is now open! Please register by Jan 4, 2026 to join us.
+            </li>
             <li>
               <span class="news-date">20 Nov 2025</span>
               <span class="news-label">•</span>
