@@ -239,9 +239,17 @@
     }
 
     .schedule-time {
-      font-weight: 600;
+      font-weight: 400;
       white-space: nowrap;
       color: #0b1f2c;
+    }
+
+    .schedule-table tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
+
+    .schedule-table tbody tr:nth-child(even) {
+      background: #f6f7fa;
     }
 
     .schedule-session {
@@ -682,13 +690,96 @@
       align-items: center;
       gap: 0.85rem;
       text-align: center;
-      flex: 1 1 280px;
-      max-width: 320px;
+      flex: 1 1 22%;
+      max-width: 240px;
+    }
+
+    /* Panel Discussion Section */
+    .panel-section {
+      background: transparent;
+      border-radius: 0;
+      padding: 0 0 1.5rem;
+      box-shadow: none;
+      border: none;
+    }
+
+    .panel-title {
+      margin: 0 0 0.5rem;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #d62828;
+    }
+
+    .panel-subtitle {
+      margin: 0 0 2rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #1c4fe3;
+      font-weight: 600;
+    }
+
+    .panel-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+
+    .panel-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+      flex: 1 1 18%;
+      max-width: 180px;
+    }
+
+    .panel-photo {
+      width: 10rem;
+      height: 10rem;
+      object-fit: cover;
+      border-radius: 9999px;
+      box-shadow: 0 10px 24px rgba(11, 31, 44, 0.15);
+      border: 3px solid #ffffff;
+      background: #e8eef9;
+    }
+
+    .panel-name {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #d62828;
+    }
+
+    .panel-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .panel-name a:hover,
+    .panel-name a:focus {
+      text-decoration: underline;
+    }
+
+    .panel-affiliation {
+      margin: -0.2rem 0 0;
+      color: #6b7280;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .panel-role {
+      margin: 0;
+      color: #0b1f2c;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     .invited-photo {
-      width: 12rem;
-      height: 12rem;
+      width: 10rem;
+      height: 10rem;
       object-fit: cover;
       border-radius: 9999px;
       box-shadow: 0 14px 32px rgba(11, 31, 44, 0.18);
@@ -889,6 +980,7 @@
       <li><a href="#overview">Overview</a></li>
       <li><a href="#programme">Programme</a></li>
       <li><a href="#speaker">Speakers</a></li>
+      <li><a href="#panel">Panel</a></li>
       <li><a href="#organizers">Organizers</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="#past-event">Past Events</a></li>
@@ -935,7 +1027,8 @@
         as a full-day, in-person event. Since 2018, SSNLP has been the annual gathering of Singapore’s NLP community,
         bringing together students, faculty, and industry researchers to share ongoing work and spark collaboration.
         Held in conjunction with AAAI 2026, this year’s symposium will feature invited keynotes from leading researchers
-        in the field, a panel discussion, and an immersive poster-focused program showcasing recent work from
+        in the field, a panel discussion, and an immersive poster-focused
+        program showcasing recent work from
         Singapore-based researchers published in top venues such as ACL, EMNLP, NeurIPS, ICLR, and AAAI this year. We
         look forward to welcoming you to SSNLP 2026 for a day of research exchange and community building!
       </p>
@@ -980,66 +1073,74 @@
         <table class="schedule-table">
           <thead>
             <tr>
-              <th style="width: 20%">Time</th>
+              <th style="width: 18%">Time</th>
               <th>Event</th>
+              <th style="width: 25%">Presenter</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="schedule-time">09:00–09:20</td>
-              <td class="schedule-session"><strong>Registration</strong></td>
+              <td class="schedule-time">09:00–09:30</td>
+              <td class="schedule-session">Registration</td>
+              <td></td>
             </tr>
             <tr>
-              <td class="schedule-time">09:20–09:30</td>
-              <td class="schedule-session"><strong>Welcome and Opening Remarks</strong></td>
+              <td class="schedule-time">09:30–09:40</td>
+              <td class="schedule-session">Welcome and Opening Remarks</td>
+              <td></td>
             </tr>
             <tr>
-              <td class="schedule-time">09:30–10:00</td>
-              <td class="schedule-session"><strong>Keynote 1</strong></td>
+              <td class="schedule-time">09:40–10:20</td>
+              <td class="schedule-session">Keynote 1</td>
+              <td class="schedule-presenter">Hung-yi Lee<br><span style="color: #6b7280; font-weight: 400;">National
+                  Taiwan University</span></td>
             </tr>
             <tr>
-              <td class="schedule-time">10:00–10:30</td>
-              <td class="schedule-session"><strong>Singapore Agency Talks</strong></td>
+              <td class="schedule-time">10:20–11:00</td>
+              <td class="schedule-session">Invited Talks from Singapore Government Agency</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="schedule-time">11:00–11:40</td>
+              <td class="schedule-session">Keynote 2</td>
+              <td class="schedule-presenter">Tanmoy Chakraborty<br><span style="color: #6b7280; font-weight: 400;">IIT
+                  Delhi</span></td>
             </tr>
             <tr class="schedule-break">
-              <td colspan="2">10:30–10:50 - Short Break</td>
-            </tr>
-            <tr>
-              <td class="schedule-time">10:50–11:20</td>
-              <td class="schedule-session"><strong>Keynote 2</strong></td>
-            </tr>
-            <tr>
-              <td class="schedule-time">11:20–11:50</td>
-              <td class="schedule-session"><strong>Keynote 3</strong></td>
-            </tr>
-            <tr class="schedule-break">
-              <td colspan="2">12:00–13:00 - Lunch Break</td>
+              <td colspan="3">11:40–13:00 - Lunch Break</td>
             </tr>
             <tr>
               <td class="schedule-time">13:00–14:30</td>
               <td class="schedule-session">
-                <strong>Poster Session</strong>
+                Poster Session
                 <a href="#poster-list">Details ↓</a>
               </td>
+              <td></td>
             </tr>
             <tr>
-              <td class="schedule-time">14:40–15:10</td>
-              <td class="schedule-session"><strong>Keynote 4</strong></td>
+              <td class="schedule-time">14:30–15:10</td>
+              <td class="schedule-session">Keynote 3</td>
+              <td class="schedule-presenter">Yuki Arase<br><span style="color: #6b7280; font-weight: 400;">Tokyo
+                  Institute of Technology</span></td>
             </tr>
             <tr>
-              <td class="schedule-time">15:10–15:40</td>
-              <td class="schedule-session"><strong>Keynote 5</strong></td>
+              <td class="schedule-time">15:10–15:50</td>
+              <td class="schedule-session">Keynote 4</td>
+              <td class="schedule-presenter">Derek F. Wong<br><span style="color: #6b7280; font-weight: 400;">University
+                  of Macau</span></td>
             </tr>
             <tr class="schedule-break">
-              <td colspan="2">15:40–16:20 - Coffee Break</td>
+              <td colspan="3">15:50–16:20 - Coffee Break</td>
             </tr>
             <tr>
               <td class="schedule-time">16:20–17:20</td>
-              <td class="schedule-session"><strong>Panel Discussion</strong></td>
+              <td class="schedule-session">Panel Discussion</td>
+              <td></td>
             </tr>
             <tr>
               <td class="schedule-time">17:20–17:30</td>
-              <td class="schedule-session"><strong>Closing Remarks</strong></td>
+              <td class="schedule-session">Closing Remarks</td>
+              <td></td>
             </tr>
           </tbody>
         </table>
@@ -1335,10 +1436,49 @@
                 rel="noopener">Derek F. Wong</a></p>
             <p class="invited-affiliation">University of Macau</p>
           </div>
-          <div class="invited-card">
-            <img src="assets/yitay.webp" alt="Yi Tay" class="invited-photo" />
-            <p class="invited-name"><a href="https://www.yitay.net/" target="_blank" rel="noopener">Yi Tay</a></p>
-            <p class="invited-affiliation">Google DeepMind</p>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="panel">
+      <h2>Panel Discussion</h2>
+      <div class="panel-section">
+        <p class="panel-subtitle">Behind the Scenes of NLP Peer Review: Perspectives from Program Chairs</p>
+        <div class="panel-grid">
+          <div class="panel-card">
+            <img src="assets/wenxuan.png" alt="Wenxuan Zhang" class="panel-photo" />
+            <p class="panel-name"><a href="https://isakzhang.github.io/" target="_blank" rel="noopener">Wenxuan
+                Zhang</a></p>
+            <p class="panel-affiliation">SUTD</p>
+            <p class="panel-role">Moderator</p>
+          </div>
+          <div class="panel-card">
+            <img src="assets/arase.jpg" alt="Yuki Arase" class="panel-photo" />
+            <p class="panel-name"><a href="https://yukiar.github.io/" target="_blank" rel="noopener">Yuki Arase</a></p>
+            <p class="panel-affiliation">TokyoTech</p>
+            <p class="panel-role">AACL'23 PC</p>
+          </div>
+          <div class="panel-card">
+            <img src="assets/Nancy Chen.png" alt="Nancy F. Chen" class="panel-photo" />
+            <p class="panel-name"><a href="https://sites.google.com/site/nancyfchen/home" target="_blank"
+                rel="noopener">Nancy F. Chen</a></p>
+            <p class="panel-affiliation">A*STAR</p>
+            <p class="panel-role">NeurIPS'25 / ICLR'23 PC</p>
+          </div>
+          <div class="panel-card">
+            <img src="assets/weilu.png" alt="Wei Lu" class="panel-photo" />
+            <p class="panel-name"><a href="https://dr.ntu.edu.sg/entities/person/Wei-Lu" target="_blank"
+                rel="noopener">Wei Lu</a></p>
+            <p class="panel-affiliation">NTU</p>
+            <p class="panel-role">Editor-in-Chief, CL</p>
+          </div>
+          <div class="panel-card">
+            <img src="assets/wong.png" alt="Derek F. Wong" class="panel-photo" />
+            <p class="panel-name"><a href="https://www.fst.um.edu.mo/personal/derek-wong/" target="_blank"
+                rel="noopener">Derek F. Wong</a></p>
+            <p class="panel-affiliation">UM</p>
+            <p class="panel-role">AACL'25 / NLPCC'24 PC</p>
           </div>
         </div>
       </div>
@@ -1391,13 +1531,6 @@
             </td>
           </tr>
           <tr>
-            <th>Web &amp; Publicity Chair</th>
-            <td>
-              <a href="https://libobo.site" target="_blank" rel="noopener">Bobo Li</a>
-              · National University of Singapore
-            </td>
-          </tr>
-          <tr>
             <th>Local Chairs</th>
             <td>
               <div>
@@ -1421,6 +1554,13 @@
                 <a href="https://quanyulong.net" target="_blank" rel="noopener">Quanyu Long</a>
                 · Nanyang Technological University
               </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Web &amp; Publicity Chair</th>
+            <td>
+              <a href="https://libobo.site" target="_blank" rel="noopener">Bobo Li</a>
+              · National University of Singapore
             </td>
           </tr>
           <tr>
@@ -1551,6 +1691,20 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
     })();
+
+    // Handle poster-list link click - open details before scrolling
+    document.querySelectorAll('a[href="#poster-list"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const details = document.getElementById('poster-list');
+        if (details && !details.open) {
+          details.open = true;
+        }
+        setTimeout(function () {
+          details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      });
+    });
   </script>
 </body>
 
