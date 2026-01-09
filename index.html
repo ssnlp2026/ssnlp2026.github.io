@@ -288,6 +288,52 @@
       color: #ea580c;
     }
 
+    .schedule-details {
+      display: inline;
+    }
+
+    .schedule-details summary {
+      cursor: pointer;
+      list-style: none;
+      display: inline;
+    }
+
+    .schedule-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .schedule-details summary::before {
+      content: "▶";
+      font-size: 0.75rem;
+      color: #1e74ff;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    .schedule-details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .schedule-details-content {
+      margin-top: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      background: #f8fafc;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #333;
+      border-left: 3px solid #1e74ff;
+    }
+
+    .schedule-details-content p {
+      margin: 0 0 0.5rem;
+    }
+
+    .schedule-details-content p:last-child {
+      margin-bottom: 0;
+    }
+
     .poster-toggle {
       margin: 1.4rem 0 0.5rem;
     }
@@ -298,13 +344,24 @@
       font-size: 1.1rem;
       cursor: pointer;
       list-style: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+      display: inline-block;
     }
 
     .poster-toggle summary::-webkit-details-marker {
       display: none;
+    }
+
+    .poster-toggle summary::before {
+      content: "▶";
+      font-size: 0.9rem;
+      color: #1e74ff;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    .poster-toggle[open] summary::before {
+      transform: rotate(90deg);
     }
 
     .poster-table-wrapper {
@@ -811,6 +868,71 @@
       font-weight: 500;
     }
 
+    .speaker-details {
+      margin-top: 0.8rem;
+      width: 100%;
+    }
+
+    .speaker-details summary {
+      color: #1e74ff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .speaker-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .speaker-details summary::before {
+      content: "▶";
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
+    }
+
+    .speaker-details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .speaker-details-content {
+      margin-top: 0.6rem;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #333;
+      box-shadow: 0 4px 12px rgba(11, 31, 44, 0.08);
+    }
+
+    .speaker-details-content h4 {
+      margin: 0 0 0.3rem;
+      font-size: 0.85rem;
+      color: #1e74ff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .speaker-details-content p {
+      margin: 0 0 0.8rem;
+    }
+
+    .speaker-details-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .speaker-talk-title {
+      margin: 0.2rem 0 0;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #4b5563;
+    }
+
     footer {
       text-align: center;
       padding: 1.2rem 1rem 1.6rem;
@@ -1098,7 +1220,9 @@
             <tr>
               <td class="schedule-time">10:20–11:00</td>
               <td class="schedule-session">Invited Talks from Singapore Government Agency</td>
-              <td></td>
+              <td class="schedule-presenter">Jian Gang Ngui<br><span style="color: #6b7280; font-weight: 400;">AI
+                  Singapore</span><br><br>Seok Min Lim<br><span style="color: #6b7280; font-weight: 400;">IMDA</span>
+              </td>
             </tr>
             <tr>
               <td class="schedule-time">11:00–11:40</td>
@@ -1119,13 +1243,46 @@
             </tr>
             <tr>
               <td class="schedule-time">14:30–15:10</td>
-              <td class="schedule-session">Keynote 3</td>
+              <td class="schedule-session">
+                <details class="schedule-details">
+                  <summary><span style="color: #1e74ff;">Keynote 3</span>: What Does Simple Mean? Grounded Text
+                    Simplification</summary>
+                  <div class="schedule-details-content">
+                    <p><strong>Abstract:</strong> Large language models can generate fluent texts on demand, yet fluency
+                      is not the same as accessibility: the same text may be trivial for one reader and incomprehensible
+                      for another. This keynote argues that text simplification and complexity control should be
+                      grounded in standardized proficiency definitions rather than ad-hoc heuristics. I introduce a
+                      CEFR-grounded framework that treats "simplicity" as a target proficiency level, enabling
+                      controlled adaptation of syntax and vocabulary while preserving meaning.</p>
+                    <p><strong>Bio:</strong> Yuki Arase is a professor at the School of Computing, Institute of Science
+                      Tokyo (aka Tokyo Institute of Technology), Japan. After obtaining her PhD in Information Science
+                      from Osaka University in 2010, she worked for Microsoft Research Asia, where she started NLP
+                      research that continues to captivate her to this day. Her research interests focus on paraphrasing
+                      and NLP technology for language education and healthcare.</p>
+                  </div>
+                </details>
+              </td>
               <td class="schedule-presenter">Yuki Arase<br><span style="color: #6b7280; font-weight: 400;">Tokyo
                   Institute of Technology</span></td>
             </tr>
             <tr>
               <td class="schedule-time">15:10–15:50</td>
-              <td class="schedule-session">Keynote 4</td>
+              <td class="schedule-session">
+                <details class="schedule-details">
+                  <summary><span style="color: #1e74ff;">Keynote 4</span>: Can a Language Model Be Its Own Judge?
+                  </summary>
+                  <div class="schedule-details-content">
+                    <p><strong>Abstract:</strong> Modern large language models (LLMs) are increasingly expected not only
+                      to generate responses but also to evaluate their own outputs. This talk presents a unified
+                      perspective on transforming LLMs into reliable evaluators and demonstrates how such judging
+                      capability can, in turn, strengthen their reasoning performance.</p>
+                    <p><strong>Bio:</strong> Derek F. Wong is a Full Professor at the University of Macau, where he
+                      leads the Natural Language Processing and Chinese–Portuguese Machine Translation Laboratory
+                      (NLP2CT Lab). He serves on the boards and committees of CIPS, CCF, and AFNLP, and holds editorial
+                      roles with IEEE/ACM TASLP, ACM TALLIP, TACL, and the ACL Rolling Review.</p>
+                  </div>
+                </details>
+              </td>
               <td class="schedule-presenter">Derek F. Wong<br><span style="color: #6b7280; font-weight: 400;">University
                   of Macau</span></td>
             </tr>
@@ -1147,7 +1304,7 @@
       </div>
 
       <details class="poster-toggle" id="poster-list">
-        <summary>Here is the poster list ↓</summary>
+        <summary>Here is the poster list</summary>
         <div class="poster-table-wrapper">
           <table class="poster-table">
             <thead>
@@ -1436,7 +1593,16 @@
                 rel="noopener">Derek F. Wong</a></p>
             <p class="invited-affiliation">University of Macau</p>
           </div>
-
+          <div class="invited-card">
+            <img src="assets/jiangang.png" alt="Jian Gang Ngui" class="invited-photo" />
+            <p class="invited-name">Jian Gang Ngui</p>
+            <p class="invited-affiliation">AI Singapore</p>
+          </div>
+          <div class="invited-card">
+            <img src="assets/seokmin.png" alt="Seok Min Lim" class="invited-photo" />
+            <p class="invited-name">Seok Min Lim</p>
+            <p class="invited-affiliation">IMDA</p>
+          </div>
         </div>
       </div>
     </section>
